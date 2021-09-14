@@ -1,0 +1,16 @@
+beer-searcher:
+  mongo:
+    uri: "mongodb://${MONGO_HOST:mongodb}:${MONGO_PORT:27017}"
+    database: beer
+  elasticsearch:
+    scheme: http
+    uri: "${ELASTIC_HOST:elasticsearch}"
+    port: "${ELASTIC_PORT:9200}"
+    index: beer-searcher
+    indexShards: 1
+    indexReplicas: 0
+    maxNgramDiff: 20
+    mappingFile: elastic_mapping.json
+    analysisFile: elastic_analysis.json
+    resultCount: 20
+

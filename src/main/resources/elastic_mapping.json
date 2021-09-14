@@ -1,0 +1,66 @@
+{
+  "properties": {
+    "id": {
+      "type": "keyword"
+    },
+    "type": {
+      "type": "keyword"
+    },
+    "exactTerms": {
+      "type": "text",
+      "analyzer": "custom_text_analyzer",
+      "fields": {
+        "edge_ngram": {
+          "type": "text",
+          "analyzer": "custom_edge_ngram_analyzer"
+        },
+        "ngram": {
+          "type": "text",
+          "analyzer": "custom_ngram_analyzer"
+        }
+      }
+    },
+    "highPriorityTerms": {
+      "type": "text",
+      "analyzer": "custom_text_analyzer",
+      "fields": {
+        "edge_ngram": {
+          "type": "text",
+          "analyzer": "custom_edge_ngram_analyzer"
+        },
+        "ngram": {
+          "type": "text",
+          "analyzer": "custom_ngram_analyzer"
+        }
+      }
+    },
+    "midPriorityTerms": {
+      "type": "text",
+      "analyzer": "custom_text_analyzer",
+      "fields": {
+        "edge_ngram": {
+          "type": "text",
+          "analyzer": "custom_edge_ngram_analyzer"
+        },
+        "ngram": {
+          "type": "text",
+          "analyzer": "custom_ngram_analyzer"
+        }
+      }
+    },
+    "lowPriorityTerms": {
+      "type": "text",
+      "analyzer": "custom_text_analyzer",
+      "fields": {
+        "edge_ngram": {
+          "type": "text",
+          "analyzer": "custom_edge_ngram_analyzer"
+        },
+        "ngram": {
+          "type": "text",
+          "analyzer": "custom_ngram_analyzer"
+        }
+      }
+    }
+  }
+}

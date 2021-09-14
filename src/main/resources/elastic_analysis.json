@@ -1,0 +1,47 @@
+{
+  "analyzer": {
+    "custom_ngram_analyzer": {
+      "filter": [
+        "lowercase",
+        "asciifolding"
+      ],
+      "tokenizer": "custom_ngram_tokenizer"
+    },
+    "custom_edge_ngram_analyzer": {
+      "filter": [
+        "lowercase",
+        "asciifolding"
+      ],
+      "tokenizer": "custom_edge_ngram_tokenizer"
+    },
+    "custom_text_analyzer": {
+      "filter": [
+        "lowercase",
+        "asciifolding"
+      ],
+      "tokenizer": "standard"
+    }
+  },
+  "tokenizer": {
+    "custom_ngram_tokenizer": {
+      "token_chars": [
+        "letter",
+        "digit",
+        "punctuation"
+      ],
+      "min_gram": "3",
+      "type": "ngram",
+      "max_gram": "15"
+    },
+    "custom_edge_ngram_tokenizer": {
+      "token_chars": [
+        "letter",
+        "digit",
+        "punctuation"
+      ],
+      "min_gram": "2",
+      "type": "edge_ngram",
+      "max_gram": "20"
+    }
+  }
+}

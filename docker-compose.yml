@@ -1,0 +1,52 @@
+version: "3.7"
+
+services:
+  mongodb:
+    image: mongo:4.4.6
+    container_name: mongodb
+    ports:
+      - 27017-27019:27017-27019
+    expose:
+      - 27017
+    volumes:
+      - mongodb_volume:/data/db
+    networks:
+      - beer-network
+
+  beer-searcher:
+    image: avisilabs/beer-searcher:latest
+    container_name: beer-searcher
+    ports:
+      - 8080:8080
+    depends_on:
+      - mongodb
+      - elasticsearch
+    networks:
+      - beer-network
+    command: ./wait-for-it.sh elasticsearch:9200 -t 60 -- java -jar app.jar
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.13.1
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - 9200:9200
+      - 9300:9300
+    volumes:
+      - elasticsearch_volume:/usr/share/elasticsearch/data
+    networks:
+      - beer-network
+
+volumes:
+  mongodb_volume:
+    driver: local
+
+  elasticsearch_volume:
+    driver: local
+
+networks:
+  beer-network:
+    name: beer-network
+    driver: bridge

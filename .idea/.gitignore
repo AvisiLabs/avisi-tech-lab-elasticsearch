@@ -1,0 +1,39 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+
+/.idea
+/.gradle
+.DS_Store
+.idea
+*.iml
+*credentials.json
+Thumbs.db
+.DS_Store
+.gradle
+build/
+target/
+out/
+lib/
+.idea
+*.iml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+.idea/**/*
+**/META-INF/*
+content/**/*
+.env
+/*credentials.json
+**/__pycache__/**
+**/*.pyc
+*.log
+/**/conversion/tmp/*
+/files/*
